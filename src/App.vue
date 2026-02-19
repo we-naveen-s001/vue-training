@@ -24,6 +24,23 @@
   <EventHandling />
 
   <FormInputBinding />
+  <WatcherComponent />
+
+  <VueLifecycle />
+
+  <WatchEffectComponent />
+
+  <SinglePost
+    title="one post"
+    :projectDetails="projectDetails"
+    message="success"
+  />
+
+  <Posts />
+
+  <Teleport to="#port">
+    <TeleportComponent />
+  </Teleport>
 </template>
 
 <style scoped>
@@ -41,8 +58,16 @@
 
 <script setup>
 import { ref } from "vue";
+import SinglePost from "./components/SinglePost.vue";
+import Posts from "./components/Posts.vue";
+import TeleportComponent from "./components/TeleportComponent.vue";
 
 const counter = ref(0);
+
+const projectDetails = {
+  id: 9,
+  name: "test project",
+};
 
 const increaseCounter = () => {
   counter.value++;

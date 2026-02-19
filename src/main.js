@@ -14,6 +14,9 @@ import ConditionalComponent from "@/components/ConditionalComponent.vue";
 import ListRendering from "@/components/ListRendering.vue";
 import EventHandling from "@/components/EventHandling.vue";
 import FormInputBinding from "@/components/FormInputBinding.vue";
+import WatcherComponent from "@/components/WatcherComponent.vue";
+import WatchEffectComponent from "@/components/WatchEffectComponent.vue";
+import VueLifecycle from "@/components/VueLifecycle.vue";
 
 const app = createApp(App);
 
@@ -40,4 +43,9 @@ app.component("EventHandling", EventHandling);
 
 app.component("FormInputBinding", FormInputBinding);
 
+app.component("WatcherComponent", WatcherComponent);
+
+app.component("WatchEffectComponent", WatchEffectComponent);
+
+app.component("VueLifecycle", VueLifecycle);
 app.mount("#app");
