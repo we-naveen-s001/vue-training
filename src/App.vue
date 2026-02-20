@@ -1,126 +1,22 @@
 <template>
-  <div class="home">
-    <div>
-      <button @click="decreaseCounter" class="btn">-</button>
-      <span class="counter">
-        {{ counter }}
-      </span>
-      <button @click="increaseCounter" class="btn">+</button>
-    </div>
+  <router-link to="/" style="padding-right: 10px">Home</router-link>
+  <router-link to="/users">Users</router-link>
+
+  <div>
+    <button @click="$router.go(-1)">Go back one step</button>
+    <button @click="$router.go(1)">Go forward one step</button>
+    <button @click="$router.push('/users')">Redirect to users</button>
+    <button @click="$router.push('/pinia-task')">Pinia task</button>
   </div>
-
-  <my-component> </my-component>
-
-  <Counter />
-  <TemplateSyntax />
-  <ComputedComponent />
-
-  <ClassComponent class="foo bar" />
-  <InlineComponent />
-  <ConditionalComponent />
-
-  <ListRendering />
-
-  <EventHandling />
-
-  <FormInputBinding />
-  <WatcherComponent />
-
-  <VueLifecycle />
-
-  <WatchEffectComponent />
-
-  <SinglePost
-    title="one post"
-    :projectDetails="projectDetails"
-    message="success"
-  />
-
-  <Posts />
-
-  <Teleport to="#port">
-    <TeleportComponent />
-  </Teleport>
+  <router-view />
 </template>
 
 <style scoped>
-.home {
-  text-align: center;
-  padding: 20px;
+.router-link-exact-active {
+  color: red;
 }
 
-.btn,
-.counter {
-  font-size: 40px;
-  padding: 20px;
+button {
+  margin: 10px;
 }
 </style>
-
-<script setup>
-import { ref } from "vue";
-import SinglePost from "./components/SinglePost.vue";
-import Posts from "./components/Posts.vue";
-import TeleportComponent from "./components/TeleportComponent.vue";
-
-const counter = ref(0);
-
-const projectDetails = {
-  id: 9,
-  name: "test project",
-};
-
-const increaseCounter = () => {
-  counter.value++;
-};
-
-const decreaseCounter = () => {
-  counter.value--;
-};
-</script>
-
-<!--
-<script>
-
-  import {ref} from 'vue'
-export default {
-  setup() {
-    const counter = ref(0)
-
-    const increaseCounter = ()=>{
-      counter.value++
-    }
-
-    const decreaseCounter = ()=>{
-      counter.value--
-    }
-
-    return {
-      counter,
-      increaseCounter,
-      decreaseCounter
-    }
-  },
-}
-</script>
--->
-
-<!--
-  <script>
-export default {
-  data(){
-    return {
-      counter : 0
-    }
-  },
-  methods:{
-    increaseCounter(){
-      this.counter++
-    },
-    decreaseCounter(){
-      this.counter--
-    }
-  }
-}
-</script>
-
--->
