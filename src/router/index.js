@@ -40,6 +40,12 @@ const router = createRouter({
       component: () => import("@/views/PiniaTask.vue"),
       props: true,
     },
+    {
+      name: "VueCrashCourse",
+      path: "/vue-course",
+      component: () => import("@/views/VueCrashCourse.vue"),
+      props: true,
+    },
   ],
 });
 

@@ -7,6 +7,7 @@
     <button @click="$router.go(1)">Go forward one step</button>
     <button @click="$router.push('/users')">Redirect to users</button>
     <button @click="$router.push('/pinia-task')">Pinia task</button>
+    <button @click="$router.push('/vue-course')">Vue Crash Course</button>
   </div>
   <router-view />
 </template>
