@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 // export default {
 //   data() {
@@ -84,6 +84,16 @@ const addTask = () => {
 const deleteTask = (index) => {
   tasks.value.splice(index, 1);
 };
+
+onMounted(async () => {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const data = await response.json();
+    tasks.value = data.map((task) => task.title);
+  } catch (err) {
+    console.log("Error fetching tasks");
+  }
+});
 </script>
 
 <style scoped></style>
